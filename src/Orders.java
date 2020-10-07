@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 public class Orders {
     //This is a class which stores all orders in a max heap data structure
 
@@ -5,6 +7,10 @@ public class Orders {
 
     public Orders(Order order){
         this.root = new Node(order);
+    }
+
+    public Orders(){
+        this.root = null;
     }
 
     /**
@@ -22,7 +28,11 @@ public class Orders {
      * @param order
      */
     public void add(Order order){
-        root.add(order);
+        if(this.root == null)
+            this.root = new Node(order);
+
+        else
+            root.add(order);
     }
 
 
@@ -58,8 +68,8 @@ public class Orders {
     }
 
     public static void main(String[] args) {
-        Order order1 = new Order(0, new Item("iPhone", 22), 3, 11.2, new Address(0,1));
-        Order order2 = new Order(0, new Item("Apple", 2), 1, 20, new Address(0,1));
+        Order order1 = new Order(0, new Product("iPhone",01, 22), 3, 11.2, new Address(0,1));
+        Order order2 = new Order(0, new Product("Apple",02, 2), 1, 20, new Address(0,1));
 
         Node node1 = new Node(order1);
         Node node2 = new Node(order2);
