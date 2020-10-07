@@ -3,8 +3,9 @@ public class Product {
     private int productID;
     private double price;
 
-    public Product(String itemName, double price){
-        this.productName = itemName;
+    public Product(String productName, int productID, double price){
+        this.productName = productName;
+        this.productID = productID;
         this.price = price;
     }
 
