@@ -1,13 +1,16 @@
 import java.util.LinkedList;
 
 public class Warehouse<T> {
+    /**
+     * Contains locations of all products in warehouse.
+     */
     final static double GROWTH_FACTOR = 4; // the expected number of elements in each bucket, # elements / buckets
-    final static int DEAFULT_BUKTS = 2; // default number of buckets
+    final private static int DEAFULT_BUKTS = 2; // default number of buckets
 
-    LinkedList<Location>[] table;
+    private LinkedList<Location>[] table;
 
-    int elements; // total number of elements in the hash table
-    double ratio; // #elements / #buckets
+    private int elements; // total number of elements in the hash table
+    private double ratio; // #elements / #buckets
 
     public Warehouse(){
         this.table = new LinkedList[DEAFULT_BUKTS];

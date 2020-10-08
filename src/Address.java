@@ -1,4 +1,7 @@
 public class Address {
+    /**
+     * This is a data structure which stores user address, represented as a (x, y) tuple.
+     */
     private int x;
     private int y;
 

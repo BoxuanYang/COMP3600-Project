@@ -1,6 +1,6 @@
 public class Order implements Comparable<Order>{
     /**
-     * Each order can only contain 1 type of product.
+     * Each order can only contain 1 type of product, the quantity, remaining_time, customer address, a priority number.
      */
     private int ID;
     private Product product;
