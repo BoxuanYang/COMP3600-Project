@@ -23,3 +23,11 @@ Product product = order.getProduct();
 Location location = warehouse.find(product);
 System.out.println("The location of the product in warehouse is area" + location.getArea());
 ```
+
+To run the code, you only need to click the run button(if you are using IDE). Or you can use the
+command line:
+```
+javac Main.java
+java Main
+```
+
