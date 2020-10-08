@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 public class Orders {
     //This is a class which stores all orders in a max heap data structure
 
