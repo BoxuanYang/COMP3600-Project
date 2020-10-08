@@ -6,6 +6,7 @@ public class Main {
     static double min = 0.0; // min value of the product price
     static double max = 1000.0; // max value of the product price
 
+
     public static void main(String[] args) {
         /**
          * The code below is to generate m products with the product name P0, P1...Pm.
