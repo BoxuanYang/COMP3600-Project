@@ -19,11 +19,12 @@ public class Main {
         }
 
         /**
-         * The code below generates the area index at which the product is stored.
+         * The code below generates the area index at which the product is stored and store it in the warehouse.
          */
-        Location[] locations = new Location[m];
+        Warehouse<Location> warehouse = new Warehouse<>();
         for(int i = 0; i < m; i++){
-            locations[i] = new Location(products[i], m-1 - i);
+            Location location = new Location(products[i], m-1 - i);
+            warehouse.add(location);
         }
 
         /**
@@ -46,16 +47,20 @@ public class Main {
             Order order = new Order(i, products[productIndex], quantity, remaining_time, new Address(x, y));
             orders.add(order);
         }
+//------------------------------The code above is the setup part of the software----------------------------------------
+//------------------------------The code below is the user interface----------------------------------------------------
+        /**
+         * The code below is to process orders we receive-extract the order with highest priority.
+         */
+        Order order = orders.process();
+        System.out.println("The order with highest priority is: " + order.toString());
 
         /**
-         * The code below is to process all the orders we receive-extract the order with highest priority.
+         * The code below is to get the location of the product in the warehouse
          */
-        for(int i = 0; i < n; i++){
-            Order order = orders.process();
-        }
-
-
-
+        Product product = order.getProduct();
+        Location location = warehouse.find(product);
+        System.out.println("The location of the product in warehouse is area" + location.getArea());
 
     }
 }
