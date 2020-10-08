@@ -1,4 +1,4 @@
-public class HashTable<T> {
+public class Warehouse<T> {
     final static double GROWTH_FACTOR = 4; // the expected number of elements in each bucket, # elements / buckets
     final static int DEAFULT_BUKTS = 2; // default number of buckets
 
@@ -7,10 +7,11 @@ public class HashTable<T> {
     int elements; // total number of elements in the hash table
     double ratio; // #elements / #buckets
 
-    public HashTable(){
+    public Warehouse(){
         this.table = new Linkedlist[DEAFULT_BUKTS];
         this.elements = 0;
         this.ratio = 0;
+
     }
 
     /**
@@ -38,6 +39,7 @@ public class HashTable<T> {
      */
     public Location find(Product product){
         //TODO
+        int hashCode = hash(product);
         return null;
     }
 }

@@ -57,4 +57,10 @@ public class Order implements Comparable<Order>{
 
         else return -1;
     }
+
+    @Override
+    public String toString() {
+        // TODO
+        return super.toString();
+    }
 }
