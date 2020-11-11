@@ -6,19 +6,19 @@ public class Order implements Comparable<Order>{
     private Product product;
     private int quantity;
     private double remaining_time;
-    private Address address;
-    // priority = a * quantity * price + b * remaining_time, can be negative
+    private String address;
+    // priority = quantity * price
     private double priority;
     private int a = 2;
     private int b = -1;
 
-    public Order(int ID, Product product, int quantity, double remaining_time, Address address){
+    public Order(int ID, Product product, int quantity,  String address){
         this.ID = ID;
         this.product = product;
         this.quantity = quantity;
-        this.remaining_time = remaining_time;
+
         this.address = address;
-        this.priority = a * quantity * product.getPrice() + b * remaining_time;
+        this.priority = a * quantity * product.getPrice() ;
     }
 
     public int getID() {
@@ -33,11 +33,9 @@ public class Order implements Comparable<Order>{
         return quantity;
     }
 
-    public double getRemaining_time() {
-        return remaining_time;
-    }
 
-    public Address getAddress() {
+
+    public String getAddress() {
         return address;
     }
 
