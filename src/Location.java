@@ -1,4 +1,7 @@
 public class Location {
+    /**
+     * This class is to store the location of product in the warehouse.
+     */
     private Product product;
     private int roomIndex;
 
