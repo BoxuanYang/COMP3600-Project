@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 public class Orders {
     /**
      * This is a class which stores all orders in a max heap data structure
@@ -17,26 +19,39 @@ public class Orders {
 
 
     public Order getMax(){
-        return heap[0];
+        Order maxOrder = heap[0];
+        deleteRoot();
+        return maxOrder;
+    }
+
+    public int getMaximumSize() {
+        return maximumSize;
     }
 
     public void deleteRoot(){
+        if(size == 0)
+            return;
 
+        heap[0] = heap[size - 1];
+        heap[size - 1] = null;
+        this.size--;
+        heapifyRoot();
     }
 
-
+    public int size(){
+        return this.size;
+    }
 
     private int getLeftChildIndex(int parentIndex){
-        assert parentIndex >= 0 && parentIndex < size: "Invalid index";
-
         return 2 * parentIndex + 1;
     }
 
     private int getRightChildIndex(int parentIndex){
-        assert parentIndex >= 0 && parentIndex < size: "Invalid index";
 
         return 2 * parentIndex + 2;
     }
+
+
 
     private int getParentIndex(int childIndex){
         assert childIndex >= 0 && childIndex < size: "Invalid index";
@@ -69,7 +84,7 @@ public class Orders {
     private boolean hasParent(int index){
         assert index >= 0 && index < size: "Invalid index";
 
-        if(index == 0)
+        if(index <= 0)
             return false;
 
         int parentIndex = getParentIndex(index);
@@ -128,18 +143,26 @@ public class Orders {
 
     }
 
+    private void heapifyRoot(){
+        int index = 0;
 
+        while(hasLeftChildIndex(index)){
+            int largestChildIndex = getLeftChildIndex(index);
 
+            if(hasRightChildIndex(index) && rightChild(index).getPriority() > leftChild(index).getPriority()){
+                largestChildIndex = getRightChildIndex(index);
+            }
 
+            if(heap[index].getPriority() < heap[largestChildIndex].getPriority()){
+                swap(index, largestChildIndex);
+            }
 
+            else
+                break;
 
-
-    public static void main(String[] args) {
-        Order order1 = new Order(0, new Product("iPhone",01, 22), 3, "location1");
-        Order order2 = new Order(0, new Product("Apple",02, 2), 1, "location2");
-
-
-
+            index = largestChildIndex;
+        }
     }
+
 
 }
