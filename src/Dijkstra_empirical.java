@@ -38,7 +38,6 @@ public class Dijkstra_empirical {
                     }
 
 
-
                     else{
                         //distance is a value in [0, 1000]
                         Random random = new Random();
