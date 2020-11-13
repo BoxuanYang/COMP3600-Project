@@ -5,20 +5,17 @@ public class Order implements Comparable<Order>{
     private int ID;
     private Product product;
     private int quantity;
-    private double remaining_time;
-    private String address;
+    private int address;
     // priority = quantity * price
-    private double priority;
-    private int a = 2;
-    private int b = -1;
 
-    public Order(int ID, Product product, int quantity,  String address){
+
+    public Order(int ID, Product product, int quantity,  int address){
         this.ID = ID;
         this.product = product;
         this.quantity = quantity;
 
         this.address = address;
-        this.priority = a * quantity * product.getPrice() ;
+
     }
 
     public int getID() {
@@ -35,30 +32,34 @@ public class Order implements Comparable<Order>{
 
 
 
-    public String getAddress() {
+    public int getAddress() {
         return address;
     }
 
     public double getPriority(){
-        return this.priority;
+        return quantity * product.getPrice();
     }
 
 
     @Override
     public int compareTo(Order order) {
-        if(this.priority > order.getPriority()){
+        if(this.getPriority() > order.getPriority()){
             return 1;
         }
 
-        else if(this.priority == order.getPriority())
+        else if(this.getPriority() == order.getPriority())
             return 0;
 
         else return -1;
     }
 
-    @Override
-    public String toString() {
-        // TODO
-        return super.toString();
+
+    public boolean equals(Order order){ //int ID, Product product, int quantity,  int address
+
+        return this.ID == order.getID() && this.product.getProductID() == order.getProduct().getProductID()
+                && this.quantity == order.quantity && this.address == order.address;
+
+
+
     }
 }
