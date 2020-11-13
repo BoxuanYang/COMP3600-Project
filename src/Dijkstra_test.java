@@ -39,11 +39,11 @@ public class Dijkstra_test {
 
         Dijkstra dijkstra = new Dijkstra();
         int[] shortestDistance = dijkstra.shortestDistance(graph);
-        System.out.println(Arrays.toString(shortestDistance));
+
 
        ShortestPath shortestPath = new ShortestPath();
        int[] shortest = shortestPath.dijkstra(graph, 0);
-       System.out.println(Arrays.toString(shortest));
+
 
        for(int i = 0; i < graph.length; i++){
            if(shortestDistance[i] != shortest[i]) {
@@ -52,7 +52,7 @@ public class Dijkstra_test {
            }
        }
 
-        System.out.println("Test passed!");
+        System.out.println("Test passed! Congratulation!");
 
 
     }
@@ -60,7 +60,7 @@ public class Dijkstra_test {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        String fileName = "Dijkstra test5";
+        String fileName = args[0];
         test(fileName);
     }
 }
